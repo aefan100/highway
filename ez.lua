@@ -22,6 +22,21 @@ Section:NewToggle("กดรัว", "กดรัวจาดด", function(sta
         bypasscooldown()
     end
 end)
+Section:NewButton("ลบคูลดาวน์", "ฟาร์มง่ายเลยดิ", function()
+    _G.xd = true
+    local Keyy = "E"
+
+    local function bypasscooldown()
+    game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(
+    function(prompt)
+        prompt.HoldDuration = 0
+    end)
+    end
+
+    while _G.xd do task.wait()
+    bypasscooldown()
+    end
+end)
 
 local NewTab = Window:NewTab("Setting")
 local Section2 = NewTab:NewSection("Ui setting")
